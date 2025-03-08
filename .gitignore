@@ -1,0 +1,42 @@
+# Byte-compiled / binary files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+*.env
+*.venv
+
+# Django secret key or environment variables
+.env
+*.sqlite3
+
+# Logs
+logs/
+*.log
+debug.log
+
+# Django migrations (optional, if you don’t want them in Git)
+*/migrations/__pycache__/
+db.sqlite3
+
+# Static files (if using collectstatic)
+staticfiles/
+static/
+
+# Media files (uploads)
+media/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MacOS system files
+.DS_Store
+
+# Jupyter Notebook checkpoints
+.ip

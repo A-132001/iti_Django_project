@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from django.http  import HttpResponse
 
-# Create your views here.
+def Home(req):
+    return HttpResponse("<h1>Hello from Trainee page</h1")
+
+def TraineeList(req):
+    return render(req,"trainee/showtrainees.html")
+
+def AddTrainee(req):
+    return render(req,"trainee/addtrainee.html")

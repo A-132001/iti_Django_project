@@ -9,3 +9,9 @@ def TraineeList(req):
 
 def AddTrainee(req):
     return render(req,"trainee/addtrainee.html")
+
+def UpdateTrainee(req):
+    return render(req,"trainee/updatetrainee.html")
+
+def DeleteTrainee(req):
+    return render(req,"trainee/deletetrainee.html")

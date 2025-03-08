@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block content %}
+<h2 style="text-align: center; color: #007bff">Add New Trainee</h2>
+<form
+  method="post"
+  style="
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  "
+>
+  <div style="margin-bottom: 10px">
+    <label for="id_name">Name:</label>
+    <input type="text" />
+  </div>
+
+  <div style="margin-bottom: 10px">
+    <label for="id_email">Email:</label>
+    <input type="text" />
+  </div>
+
+  <div style="margin-bottom: 10px">
+    <label for="id_course">Course:</label>
+    <input type="text" />
+  </div>
+
+  <button
+    type="submit"
+    style="
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    "
+  >
+    Add Trainee
+  </button>
+</form>
+{% endblock %}

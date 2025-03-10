@@ -3,15 +3,15 @@ from django.http  import HttpResponse
 from .models import Trainee 
 
 def TraineeList(req):
-    all_trainee = Trainee.objects.all()
-    print(all_trainee)
-    return render(req,"trainee/showtrainees.html")
+    context = {}
+    context["all_trainees"] = Trainee.objects.all()
+    return render(req,"trainee/showtrainees.html",context)
 
 def AddTrainee(req):
     return render(req,"trainee/addtrainee.html")
 
-def UpdateTrainee(req):
+def UpdateTrainee(req,id):
     return render(req,"trainee/updatetrainee.html")
 
-def DeleteTrainee(req):
+def DeleteTrainee(req,id):
     return render(req,"trainee/deletetrainee.html")

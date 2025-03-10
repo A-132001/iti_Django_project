@@ -7,33 +7,38 @@
         <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Course</th>
+        <th scope="col">image</th>
         <th scope="col">Operations</th>
       </tr>
     </thead>
     <tbody>
+      {% for trainee in all_trainees %}
       <tr>
-        <th scope="row">1</th>
-        <td>abdo</td>
-        <td>abdo@gmail.com</td>
-        <td>Python fullstarck course</td>
+        <th scope="row">{{trainee.id}}</th>
+        <td>{{trainee.name}}</td>
+        <td>{{trainee.email}}</td>
         <td>
-          <a href="{%url 'update_trainee'  %}" class="btn btn-info">Update</a>
-          <a href="{%url 'delete_trainee'  %}" class="btn btn-danger">Delete</a>
+          <img
+            src="{{ trainee.image.url }}"
+            alt="Trainee Image"
+            style="
+              width: 50px;
+              height: 50px;
+              object-fit: cover;
+              border-radius: 50%;
+            "
+          />
+        </td>
+        <td>
+          <a href="{%url 'update_trainee'  trainee.id %}" class="btn btn-info"
+            >Update</a
+          >
+          <a href="{%url 'delete_trainee'  trainee.id %}" class="btn btn-danger"
+            >Delete</a
+          >
         </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
   <a

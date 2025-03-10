@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
-
-def Home(req):
-    return HttpResponse("<h1>Hello from Trainee page</h1")
+from .models import Trainee 
 
 def TraineeList(req):
+    all_trainee = Trainee.objects.all()
+    print(all_trainee)
     return render(req,"trainee/showtrainees.html")
 
 def AddTrainee(req):

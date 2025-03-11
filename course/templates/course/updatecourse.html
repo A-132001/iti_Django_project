@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-<h2 style="text-align: center; color: #007bff">Add New Course</h2>
+<h2 style="text-align: center; color: #007bff">Update The Course</h2>
 <form method="post" enctype="multipart/form-data" class="container">
   {% csrf_token %}
   <div class="form-row">
@@ -12,6 +12,7 @@
         placeholder="Course Name"
         required
         name="crname"
+        value="{{course.name}}"
       />
       <div class="valid-tooltip">Looks good!</div>
     </div>
@@ -24,6 +25,7 @@
         placeholder="Instructor Name"
         required
         name="crinstructor"
+        value="{{course.instructor}}"
       />
       <div class="valid-tooltip">Looks good!</div>
     </div>
@@ -35,27 +37,17 @@
         class="form-control"
         id="exampleFormControlTextarea1"
         name="crdescription"
-      ></textarea>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="custom-control custom-checkbox">
-      <input
-        type="checkbox"
-        class="custom-control-input"
-        id="customCheck1"
-        checked
-        name="trisactive"
-      />
-      <label class="custom-control-label" for="customCheck1"
-        >This Course Active</label
+      >
+{{course.description}}</textarea
       >
     </div>
   </div>
 
   <div class="row justify-content-center">
     <div class="col-auto">
-      <button type="submit" class="btn btn-primary">Add Course</button>
+      <button type="submit" class="btn btn-primary">
+        Update Course informations
+      </button>
     </div>
   </div>
 </form>

@@ -1,40 +1,46 @@
 {% extends "base.html" %} {% block content %}
-<div class="container">
-  <h2 style="text-align: center; color: #007bff">Courses List</h2>
-  <table class="table">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Course</th>
-        <th scope="col">Operations</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>abdo</td>
-        <td>abdo@gmail.com</td>
-        <td>Python fullstarck course</td>
-        <td>
-          <button type="button" class="btn btn-info">Update</button>
-          <button type="button" class="btn btn-danger">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container" style="text-align: center">
+  <div class="row">
+    <div class="col-12">
+      <h2 style="text-align: center; color: #007bff">Courses List</h2>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col" class="col-1">ID</th>
+            <th scope="col" class="col-2">Name</th>
+            <th scope="col" class="col-2">Instructor</th>
+            <th scope="col" class="col-5">Description</th>
+            <th scope="col" class="col-2">Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for course in courses %}
+          <tr>
+            <th scope="row">{{course.id}}</th>
+            <td>{{course.name}}</td>
+            <td>{{course.instructor}}</td>
+            <td>{{course.description}}</td>
+            <td>
+              <a href="{%url 'update_course'  course.id %}" class="btn btn-info"
+                >Update</a
+              >
+              <a
+                href="{%url 'delete_course'  course.id %}"
+                class="btn btn-danger"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a
+        href="{%url 'add_course'  %}"
+        style="text-align: center; margin: 50px 0px"
+        class="btn btn-success align-center"
+        >Add Course</a
+      >
+    </div>
+  </div>
 </div>
 {% endblock %}

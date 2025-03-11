@@ -1,0 +1,65 @@
+{% extends "base.html" %} {% block content %}
+<h2 style="text-align: center; color: #007bff">Add New Track</h2>
+<form method="post" enctype="multipart/form-data" class="container">
+  {% csrf_token %}
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="validationTooltip01">Track Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationTooltip01"
+        placeholder="Track Name"
+        required
+        name="track_name"
+      />
+      <div class="valid-tooltip">Looks good!</div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="validationTooltip01">Department Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationTooltip01"
+        placeholder="Department Name"
+        required
+        name="track_department"
+      />
+      <div class="valid-tooltip">Looks good!</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="locationSelect">Location</label>
+      <select class="form-control" id="locationSelect" name="track_location">
+        <option value="Sohag">Sohag</option>
+        <option value="Cairo">Cairo</option>
+        <option value="Alexandria">Alexandria</option>
+        <option value="Giza">Giza</option>
+        <option value="Sharm El Sheikh">Sharm El Sheikh</option>
+        <option value="Luxor">Luxor</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="custom-control custom-checkbox">
+      <input
+        type="checkbox"
+        class="custom-control-input"
+        id="customCheck1"
+        checked
+        name="track_isactive"
+      />
+      <label class="custom-control-label" for="customCheck1"
+        >This Track Active</label
+      >
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Add New Track</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

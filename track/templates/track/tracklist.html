@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+<div class="container" style="text-align: center">
+  <h2 style="text-align: center; color: #007bff">Trainees List</h2>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">Locatoin</th>
+        <th scope="col">Operations</th>
+      </tr>
+    </thead>
+    <th scope="row">{{traintraee.id}}</th>
+
+    <tbody>
+      {% for track in tracks %}
+      <tr>
+        <th scope="row">{{track.id}}</th>
+        <td>{{track.name}}</td>
+        <td>{{track.department}}</td>
+        <td>{{track.location}}</td>
+        <td>
+          <a href="{% url 'update_track' track.id %}" class="btn btn-info"
+            >Update</a
+          >
+          <a href="{% url 'delete_track' track.id%}" class="btn btn-danger"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a
+    href="{%url 'add_track'  %}"
+    style="text-align: center; margin: 50px 0px"
+    class="btn btn-success align-center"
+    >Add Trainee</a
+  >
+</div>
+{% endblock %}

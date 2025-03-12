@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% block content %} {% if user.is_authenticated %}
 <div class="container" style="text-align: center">
   <h2 style="text-align: center; color: #007bff">Trainees List</h2>
   <table class="table">
@@ -48,4 +48,8 @@
     >Add Trainee</a
   >
 </div>
-{% endblock %}
+{% else %}
+<div class="alert alert-danger text-center h1" role="alert">
+  You should Login In The First
+</div>
+{% endif %} {% endblock %}

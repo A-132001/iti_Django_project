@@ -1,13 +1,15 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 from .models import Trainee 
-
+from .decorators import require_auth
+@require_auth
 def TraineeList(req):
     context = {}
     # context["all_trainees"] = Trainee.objects.all()
     context["all_trainees"] = Trainee.objects.filter(isactive=True)
     return render(req,"trainee/showtrainees.html",context)
 
+@require_auth
 def AddTrainee(req):
     if(req.method == "POST"):
         Trainee.objects.create(name=req.POST["trname"],
@@ -15,6 +17,7 @@ def AddTrainee(req):
                                image=req.FILES["trimage"],)
     return render(req,"trainee/addtrainee.html")
 
+@require_auth
 def UpdateTrainee(req,id):
     trainee = Trainee.objects.get(id=id)
     context = {"trainee":trainee}

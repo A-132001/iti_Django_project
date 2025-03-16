@@ -7,6 +7,7 @@
         <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
+        <th scope="col">Track</th>
         <th scope="col">image</th>
         <th scope="col">Operations</th>
       </tr>
@@ -17,6 +18,7 @@
         <th scope="row">{{trainee.id}}</th>
         <td>{{trainee.name}}</td>
         <td>{{trainee.email}}</td>
+        <td>{{trainee.track.name}}</td>
         <td>
           <img
             src="{{ trainee.image.url }}"

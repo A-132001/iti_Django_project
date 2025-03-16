@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 from .models import Trainee 
 from .decorators import require_auth
+
+from django.views import View
 @require_auth
 def TraineeList(req):
     context = {}
@@ -14,7 +16,8 @@ def AddTrainee(req):
     if(req.method == "POST"):
         Trainee.objects.create(name=req.POST["trname"],
                                email=req.POST["tremail"],
-                               image=req.FILES["trimage"],)
+                               image=req.FILES["trimage"],
+                               )
     return render(req,"trainee/addtrainee.html")
 
 @require_auth

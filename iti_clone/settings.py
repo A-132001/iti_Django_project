@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'trainee.apps.TraineeConfig',
     'track.apps.TrackConfig',
     'account.apps.AccountConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
